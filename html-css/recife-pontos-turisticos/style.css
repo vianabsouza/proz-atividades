@@ -44,7 +44,10 @@ nav ul li a:hover {
 
 img {
   display: block;
+  height: 700px;
   margin: 20px auto 20px;
+  object-fit: cover;
+  width: 700px;
 }
 
 h1 {
