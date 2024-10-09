@@ -1,0 +1,10 @@
+CREATE DATABASE escola;
+
+USE escola;
+
+CREATE TABLE aluno (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  endereco VARCHAR(100)
+)
