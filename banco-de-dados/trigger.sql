@@ -34,6 +34,7 @@ INSERT INTO idioma(nome, pais_id) VALUES
 ('Inglês', 6),
 ('Africâner', 7);
 
+# SQLITE
 CREATE TRIGGER deletar_idioma_pais
 AFTER DELETE ON pais
 FOR EACH ROW
