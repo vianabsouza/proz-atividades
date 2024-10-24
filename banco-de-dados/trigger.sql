@@ -1,8 +1,5 @@
-CREATE DATABASE paises_e_idiomas;
-USE paises_e_idiomas;
-
 CREATE TABLE pais(
-  id SERIAL PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(70) NOT NULL UNIQUE,
   capital VARCHAR(70),
   continente VARCHAR(70),
@@ -10,7 +7,7 @@ CREATE TABLE pais(
 );
 
 CREATE TABLE idioma(
-  id SERIAL PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(70) NOT NULL,
   pais_id INT NOT NULL,
   CONSTRAINT fk_pais FOREIGN KEY (pais_id) REFERENCES pais(id)
@@ -34,10 +31,13 @@ INSERT INTO idioma(nome, pais_id) VALUES
 ('Inglês', 6),
 ('Africâner', 7);
 
-# SQLITE
+DELIMITER $$
+
 CREATE TRIGGER deletar_idioma_pais
 AFTER DELETE ON pais
 FOR EACH ROW
 BEGIN
   DELETE FROM idioma WHERE idioma.pais_id = OLD.id;
-END;
+END $$
+
+DELIMITER ;
